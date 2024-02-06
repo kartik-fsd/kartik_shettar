@@ -76,7 +76,7 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 items-center">
-                  <h3 className="px-4 font-semibold text-2xl text-zinc-900 h-8 w-auto">
+                  <h3 className="px-4 ml-4 font-semibold text-2xl text-zinc-900 h-8 w-auto">
                     Kartik&apos;s Portfolio
                   </h3>
                 </div>
