@@ -25,8 +25,10 @@ export default function Example() {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                <Disclosure.Button className="p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="sr-only">Open main menu</span>
+                <Disclosure.Button
+                  className="p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  aria-label={open ? "Close main menu" : "Open main menu"}
+                >
                   {open ? (
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                   ) : (
@@ -36,7 +38,10 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 items-center">
-                  <h3 className="px-4 ml-4 font-semibold text-2xl text-gray-50 h-8 w-auto">
+                  <h3
+                    className="px-4 ml-4 font-semibold text-2xl text-gray-50 h-8 w-auto"
+                    tabIndex="0" // Add tabindex for keyboard focus
+                  >
                     Kartik&apos;s Portfolio
                   </h3>
                 </div>
@@ -63,8 +68,7 @@ export default function Example() {
               </div>
             </div>
           </div>
-
-          <Disclosure.Panel className="sm:hidden">
+          <Disclosure.Panel>
             <div className="space-y-1 px-2 pb-3 pt-2">
               {navigation.map((item) => (
                 <Disclosure.Button
