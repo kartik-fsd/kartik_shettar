@@ -1,11 +1,9 @@
-import animationPath from "../assets/Animation.json";
+import animationPath from "../assets/Animation.webm";
 import { motion } from "framer-motion";
 import Type from "../Components/Typewriter/type";
 import { memo } from "react";
-import Lottie from "react-lottie";
 
 function Home() {
-  const text = ["Full stack developer", "Frontend Developer"]
   const MemoizedType = memo(Type);
 
   return (
@@ -13,16 +11,18 @@ function Home() {
       <div className="max-w-4xl my-6 mx-auto p-4 lg:px-4">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="aspect-w-5 aspect-h-4 overflow-hidden rounded-xl">
-            <Lottie
-              options={{
-                animationData: animationPath,
-                loop: true,
-                autoplay: true,
-                width: "100%",
-                height: "100%",
-              }}
+            <video 
+              autoPlay
+              muted
+              playsInline
+              loop
+              preload="auto"
+              style={{ width: "100%", height: "100%" }}
               aria-label="Animation"
-            />
+              role="presentation"
+            >
+              <source src={animationPath} type="video/webm" />
+            </video>
           </div>
 
           <div className="w-fit flex flex-col justify-center items-start lg:items-center">
@@ -42,7 +42,7 @@ function Home() {
                 className="text-3xl font-extrabold my-3 sm:text-3xl lg:text-3xl text-teal-500"
                 aria-label="Typewriter Animation"
               >
-                <MemoizedType text={text} />
+                <MemoizedType text={["Full stack developer", "Frontend Developer"]} />
               </span>
             </motion.div>
           </div>
@@ -54,11 +54,11 @@ function Home() {
           THE CODE WHISPERER
         </h1>
         <p className="text-gray-400 italic">
-          Witness my undying passion for programming – or at least, that&apos;s what
-          I tell myself. Rumor has it, I&apos;ve mastered the classics: Javascript,
-          React, Node. The usual suspects. 🤷‍♂️ As I navigate through the
-          labyrinth of code, one can&apos;t help but wonder: do I really know what
-          I&apos;m doing?
+          Witness my undying passion for programming – or at least, that&apos;s
+          what I tell myself. Rumor has it, I&apos;ve mastered the classics:
+          Javascript, React, Node. The usual suspects. 🤷‍♂️ As I navigate through
+          the labyrinth of code, one can&apos;t help but wonder: do I really
+          know what I&apos;m doing?
         </p>
         <p className="mt-4">
           Amidst the vast realm of Web Technologies, I am the virtuoso,
@@ -71,5 +71,6 @@ function Home() {
     </main>
   );
 }
+const MemoHome = memo(Home);
 
-export default Home;
+export default MemoHome;

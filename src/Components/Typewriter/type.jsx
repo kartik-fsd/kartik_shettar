@@ -14,5 +14,5 @@ export default function Type({text}) {
   );
 }
 Type.propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.array,
 };

@@ -1,13 +1,14 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
+import { Link, useLocation } from "react-router-dom";
 
 // Navigation data
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "About", href: "#", current: false },
-  { name: "Projects", href: "#", current: false },
-  { name: "Resume", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Home", href: "/", current: false },
+  { name: "About", href: "/about", current: false },
+  { name: "Projects", href: "/projects", current: false },
+  { name: "Resume", href: "/resume", current: false },
+  { name: "Contact", href: "/contact", current: false },
 ];
 
 // Helper function for generating class names
@@ -17,9 +18,12 @@ function classNames(...classes) {
 
 // Main navigation component
 export default function Example() {
-  const handleItemClick = (item) => {
-    console.log(item, "clicked");
-  };
+  const location = useLocation();
+
+  // Set the current property based on the current pathname
+  navigation.forEach((item) => {
+    item.current = item.href === location.pathname;
+  });
 
   return (
     <Disclosure as="nav" className="bg-gray-900 text-white shadow-2xl shadow-neutral-950">
@@ -42,19 +46,18 @@ export default function Example() {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 items-center">
-                  <h3
-                    className="px-4 ml-4 font-semibold text-2xl h-8 w-auto"
-                    tabIndex="0"
-                  >
-                    Kartik&apos;s Portfolio
+                  <h3 className="px-4 ml-4 font-semibold text-2xl h-8 w-auto">
+                    <Link to="/" aria-labelledby="logo-label">
+                      Kartik&apos;s Portfolio
+                    </Link>
                   </h3>
                 </div>
                 <div className="hidden sm:ml-auto sm:block">
                   <div className="flex space-x-3">
                     {navigation.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
-                        href={item.href}
+                        to={item.href}
                         className={classNames(
                           item.current
                             ? "bg-teal-500 text-white"
@@ -62,10 +65,9 @@ export default function Example() {
                           "rounded-2xl px-3 py-2 text-sm"
                         )}
                         aria-current={item.current ? "page" : undefined}
-                        onClick={() => handleItemClick(item)}
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -77,8 +79,8 @@ export default function Example() {
               {navigation.map((item) => (
                 <Disclosure.Button
                   key={item.name}
-                  as="a"
-                  href={item.href}
+                  as={Link}
+                  to={item.href}
                   className={classNames(
                     item.current
                       ? "bg-teal-500 text-white"
@@ -86,7 +88,6 @@ export default function Example() {
                     "block rounded-xl px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
-                  onClick={() => handleItemClick(item)}
                 >
                   {item.name}
                 </Disclosure.Button>
