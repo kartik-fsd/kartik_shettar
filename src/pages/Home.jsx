@@ -5,6 +5,7 @@ import { memo } from "react";
 import Lottie from "react-lottie";
 
 function Home() {
+  const text = ["Full stack developer", "Frontend Developer"]
   const MemoizedType = memo(Type);
 
   return (
@@ -41,7 +42,7 @@ function Home() {
                 className="text-3xl font-extrabold my-3 sm:text-3xl lg:text-3xl text-teal-500"
                 aria-label="Typewriter Animation"
               >
-                <MemoizedType />
+                <MemoizedType text={text} />
               </span>
             </motion.div>
           </div>
@@ -49,7 +50,7 @@ function Home() {
       </div>
 
       <section className="max-w-4xl my-8 mx-auto p-6 bg-gray-800 rounded-lg">
-        <h1 className="font-extrabold text-5xl text-center mb-6">
+        <h1 className="font-extrabold text-5xl text-center text-zinc-300 mb-6">
           THE CODE WHISPERER
         </h1>
         <p className="text-gray-400 italic">

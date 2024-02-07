@@ -1,10 +1,11 @@
 import Typewriter from "typewriter-effect";
+import PropTypes from 'prop-types';
 
-export default function Type() {
+export default function Type({text}) {
   return (
     <Typewriter
       options={{
-        strings: ["Full stack developer", "Frontend Developer"],
+        strings: text,
         autoStart: true,
         loop: true,
         delay : 200
@@ -12,3 +13,6 @@ export default function Type() {
     />
   );
 }
+Type.propTypes = {
+  text: PropTypes.string,
+};

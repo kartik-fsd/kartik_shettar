@@ -32,7 +32,7 @@ function ScrollToTopButton() {
       {isVisible && (
         <button
           onClick={scrollToTop}
-          className="fixed bottom-6 right-6 bg-teal-500 text-white p-3 rounded-full shadow-md focus:outline-none hover:bg-teal-600 transition duration-300"
+          className="fixed bottom-6 right-6 bg-teal-500 text-white p-3 rounded-full shadow-md focus:outline-none hover:bg-teal-600 transition duration-300 animate-bounce"
           title="Scroll to Top"
         >
           <IoArrowUpSharp className="text-xl" />
