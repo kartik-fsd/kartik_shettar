@@ -1,6 +1,7 @@
 import { Disclosure } from "@headlessui/react";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 
+// Navigation data
 const navigation = [
   { name: "Home", href: "#", current: true },
   { name: "About", href: "#", current: false },
@@ -9,25 +10,28 @@ const navigation = [
   { name: "Contact", href: "#", current: false },
 ];
 
+// Helper function for generating class names
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
+// Main navigation component
 export default function Example() {
   const handleItemClick = (item) => {
-    console.log(item, "con");
+    console.log(item, "clicked");
   };
 
   return (
-    <Disclosure as="nav" className="bg-gray-900 shadow-2xl shadow-neutral-950">
+    <Disclosure as="nav" className="bg-gray-900 text-white shadow-2xl shadow-neutral-950">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
                 <Disclosure.Button
-                  className="p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                  className="p-2 text-gray-200 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                   aria-label={open ? "Close main menu" : "Open main menu"}
+                  aria-expanded={open}
                 >
                   {open ? (
                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
@@ -39,8 +43,8 @@ export default function Example() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex-shrink-0 items-center">
                   <h3
-                    className="px-4 ml-4 font-semibold text-2xl text-gray-50 h-8 w-auto"
-                    tabIndex="0" // Add tabindex for keyboard focus
+                    className="px-4 ml-4 font-semibold text-2xl h-8 w-auto"
+                    tabIndex="0"
                   >
                     Kartik&apos;s Portfolio
                   </h3>
@@ -54,7 +58,7 @@ export default function Example() {
                         className={classNames(
                           item.current
                             ? "bg-teal-500 text-white"
-                            : "text-gray-400 hover:bg-teal-700 hover:text-white",
+                            : "text-gray-300 hover:bg-teal-700 hover:text-white focus:bg-teal-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-teal-500",
                           "rounded-2xl px-3 py-2 text-sm"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -78,7 +82,7 @@ export default function Example() {
                   className={classNames(
                     item.current
                       ? "bg-teal-500 text-white"
-                      : "text-gray-400 hover:bg-teal-700 hover:text-white",
+                      : "text-gray-300 hover:bg-teal-700 hover:text-white focus:bg-teal-700 focus:text-white focus:outline-none focus:ring-2 focus:ring-teal-500",
                     "block rounded-xl px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
