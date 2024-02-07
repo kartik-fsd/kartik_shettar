@@ -4,13 +4,13 @@ import { IoLogoInstagram } from "react-icons/io";
 
 function Footer() {
   return (
-    <footer className="w-full bg-slate-50 shadow-inner h-25 mt-auto">
+    <footer className="w-full bg-gray-900 shadow-xl shadow-gray-700 h-25 mt-auto">
       <span className="my-2 flex space-x-4 items-center justify-center">
-        <CiLinkedin className="text-yellow-600 text-xl" />
-        <VscGithub className="text-yellow-600 text-xl" />
-        <IoLogoInstagram className="text-yellow-600 text-xl" />
+        <CiLinkedin className="text-teal-400 text-xl hover:text-teal-500 cursor-pointer" />
+        <VscGithub className="text-teal-400 text-xl hover:text-teal-500 cursor-pointer" />
+        <IoLogoInstagram className="text-teal-400 text-xl hover:text-teal-500 cursor-pointer" />
       </span>
-      <div className="text-center my-2 text-sm tracking-wider text-yellow-600">
+      <div className="text-center my-2 text-sm tracking-wider text-teal-400">
         <h4> 2024 &copy; Created by Kartik Shettar</h4>
       </div>
     </footer>
@@ -18,3 +18,4 @@ function Footer() {
 }
 
 export default Footer;
+
