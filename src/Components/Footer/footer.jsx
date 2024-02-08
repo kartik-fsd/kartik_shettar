@@ -22,7 +22,7 @@ const socialMediaLinks = [
 
 function Footer() {
   return (
-    <footer className="w-full bg-gray-900 shadow-xl shadow-gray-700 h-25 mt-auto">
+    <footer className="w-full bg-gray-900 shadow-xl shadow-neutral-950 mt-auto">
       <span className="my-2 flex space-x-4 items-center justify-center">
         {socialMediaLinks.map(({ icon, label, url }) => (
           <a

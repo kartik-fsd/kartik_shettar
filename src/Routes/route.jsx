@@ -4,10 +4,12 @@ import About from "../pages/About";
 import Project from "../pages/Project.JSX";
 import Resume from "../pages/Resume";
 import ContactForm from "../pages/ContactForm";
+//import TransitionComponent from "../Components/Transisition/Transition";
 
 export const Routers = () =>{
     return(
         <>
+            
         <Routes>
             <Route exact path="/" element={<Home />}/>
             <Route path="/about" element={<About/>} />
@@ -15,6 +17,7 @@ export const Routers = () =>{
             <Route path="/resume" element={<Resume/>}/>
             <Route path="/contact" element={<ContactForm/>}/>
         </Routes>
+            
         </>
     );
 }
