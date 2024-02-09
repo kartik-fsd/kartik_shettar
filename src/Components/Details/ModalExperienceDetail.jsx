@@ -5,10 +5,10 @@ export const ExperienceCard = ({
   logo,
   dates,
   title,
-  description,
+  description: { summary, points },
 }) => {
   return (
-    <article className="w-100 p-6 bg-white  dark:bg-slate-800">
+    <article className="w-100 p-6 bg-white dark:bg-slate-800">
       <div className="flex items-center space-x-4 mb-4">
         <img
           src={logo}
@@ -16,22 +16,25 @@ export const ExperienceCard = ({
           className="w-16 h-16 rounded-full"
           role="img"
           aria-label={`${company} logo`}
+          loading="lazy"
         />
         <div>
-          <h3 className="text-gray-400 text-md font-medium ">{title}</h3>
+          <h3 className="text-gray-400 text-md font-medium">{title}</h3>
           <p className="text-gray-400 text-xs">{company}</p>
-         
           <time className="text-gray-500 text-xs">{dates}</time>
         </div>
       </div>
-     
-        <p className="text-gray-400 text-wrap text-sm my-3">{description.summary}</p>
-        
+
+      <p className="text-gray-400 text-wrap text-sm my-3">{summary}</p>
+      {points && (
         <ul className="text-gray-300 text-xs list-disc mb-2">
-        {description?.points?.map((point, index) => (
-          <li key={index} className="mb-1">{point}</li>
-        ))}
-      </ul>
+          {points.map((point, index) => (
+            <li key={index} className="mb-1">
+              {point}
+            </li>
+          ))}
+        </ul>
+      )}
     </article>
   )
   

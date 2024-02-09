@@ -34,89 +34,90 @@ export const optimizedData = [
   {
     name: "HTML",
     icon: getIconByName("FaHtml5"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "CSS",
     icon: getIconByName("IoLogoCss3"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "JavaScript",
     icon: getIconByName("IoLogoJavascript"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "Node.js",
     icon: getIconByName("FaNode"),
-    category: "skills",
+    category: "backend",
   },
   {
     name: "Express.js",
     icon: getIconByName("SiExpress"),
-    category: "skills",
+    category: "backend",
   },
   {
     name: "Java",
     icon: getIconByName("FaJava"),
-    category: "skills",
+    category: "backend",
   },
   {
     name: "React.js",
     icon: getIconByName("FaReact"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "Next.js",
     icon: getIconByName("TbBrandNextjs"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "React-Native",
     icon: getIconByName("TbBrandReactNative"),
-    category: "skills",
+    category: "frontend",
   },
   {
     name: "MongoDB",
     icon: getIconByName("SiMongodb"),
-    category: "skills",
+    category: "database",
   },
   {
     name: "MySQL",
     icon: getIconByName("SiMysql"),
-    category: "skills",
+    category: "database",
   },
   {
     name: "Docker",
     icon: getIconByName("LiaDocker"),
-    category: "techTool",
+    category: "devops",
   },
   {
     name: "Postman",
     icon: getIconByName("SiPostman"),
-    category: "techTool",
+    category: "devops",
   },
   {
     name: "ChatGPT",
     icon: getIconByName("RiOpenaiFill"),
-    category: "techTool",
+    category: "tools",
   },
   {
     name: "Vercel",
     icon: getIconByName("IoLogoVercel"),
-    category: "techTool",
+    category: "cloud",
   },
   {
     name: "Netlify",
     icon: getIconByName("SiNetlify"),
-    category: "techTool",
+    category: "cloud",
   },
   {
     name: "VSCode",
     icon: getIconByName("TbBrandVscode"),
-    category: "techTool",
+    category: "tools",
   },
 ];
+
 
 export const experienceData = [
   {

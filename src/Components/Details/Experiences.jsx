@@ -1,14 +1,15 @@
+import  { useState, lazy, Suspense } from "react";
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { FaChevronRight } from "react-icons/fa6";
-import Modal from "../Modal/Modal";
 import { experienceData } from "../../assets/data";
 import { ExperienceCard } from "./ModalExperienceDetail";
 
-export const Experiences = ({ company, logo, dates, title }) => {
+// Use React.lazy to lazily load the Modal component
+const Modal = lazy(() => import("../Modal/Modal"));
+
+const Experiences = ({ company, logo, dates, title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Add placeholder modal content (replace with your actual content)
   const modalContent = () => (
     <div>
       {experienceData.map((exp) => (
@@ -17,9 +18,8 @@ export const Experiences = ({ company, logo, dates, title }) => {
     </div>
   );
 
-  const handleClick = (e) => {
+  const handleClick = () => {
     setIsModalOpen((prev) => !prev);
-    console.log(e, "data");
   };
 
   return (
@@ -45,29 +45,27 @@ export const Experiences = ({ company, logo, dates, title }) => {
             aria-hidden="true"
             className="w-6 h-5 ms-2 -me-1 text-gray-900 dark:text-white"
             onClick={handleClick}
-            data-modal-target="static-modal"
-            data-modal-toggle="static-modal"
           />
         </div>
         <div className="hidden sm:block">
           <button
             type="button"
-            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200  font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2"
+            className="text-gray-900 bg-white hover:bg-gray-100 border border-gray-200 font-medium rounded-md text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-gray-800 dark:border-gray-700 dark:text-white dark:hover:bg-gray-700 me-2 mb-2"
             onClick={handleClick}
-            data-modal-target="static-modal"
-            data-modal-toggle="static-modal"
           >
             View
             <FaChevronRight aria-hidden="true" className="w-6 h-5 ms-2 -me-1" />
           </button>
         </div>
       </article>
-      <Modal
-        isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)}
-        content={modalContent}
-        title="Experience Details"
-      />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Modal
+          isOpen={isModalOpen}
+          onClose={() => setIsModalOpen(false)}
+          content={modalContent}
+          title="Experience Details"
+        />
+      </Suspense>
     </>
   );
 };
@@ -80,3 +78,4 @@ Experiences.propTypes = {
 };
 
 export default Experiences;
+
