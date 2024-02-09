@@ -1,8 +1,31 @@
 import PropTypes from "prop-types";
+import { useState } from "react";
 import { FaRegCopy } from "react-icons/fa6";
 
 function Avatar({ data }) {
-  const copyEmail = () => navigator.clipboard.writeText(data.email); // Use navigator.clipboard for copying
+  const [copied, setCopied] = useState(false);
+  const [result, setResult] = useState('');
+
+  const copyEmail = async () => {
+    try {
+      await navigator.clipboard.writeText(data.email);
+      setCopied(true);
+      setResult("Copied successfully!");
+      setTimeout(() => {
+        setCopied(false);
+        setResult(''); // Reset result message
+      }, 1600);
+    } catch (error) {
+      console.error("Error copying email:", error);
+      // Log error to monitoring service or analytics platform
+      setCopied(true);
+      setResult("Something went wrong. Try again!");
+      setTimeout(() => {
+        setCopied(false);
+        setResult(''); // Reset result message
+      }, 2000);
+    }
+  };
 
   return (
     <div className="flex flex-col items-center">
@@ -17,11 +40,31 @@ function Avatar({ data }) {
         </figure>
 
         <div className="text-center">
-          <h3 className="text-zinc-200 text-lg font-medium">{data.name}</h3>
-          <h3 className="text-zinc-300 text-sm font-light mt-1">{data.title}</h3>
+          <header className="text-zinc-200 text-lg font-medium">{data.name}</header>
+          <p className="text-zinc-300 text-sm font-light mt-1">{data.title}</p>
           <div className="mt-1 flex items-center justify-center">
             <h4 className="text-zinc-400 text-xs mr-2">{data.email}</h4>
-            <FaRegCopy onClick={copyEmail} className="cursor-pointer text-zinc-400" aria-label="Copy email" />
+            <FaRegCopy
+              onClick={copyEmail}
+              className="cursor-pointer text-zinc-400 active:text-zinc-500"
+              aria-label="Copy email"
+            />
+            {copied && result && result.includes("successfully") && (
+              <h4
+                className={`text-xs text-lime-500 mx-2 antialiased`}
+                aria-live="polite"
+              >
+                {result}
+              </h4>
+            )}
+            {copied && result && !result.includes("successfully") && (
+              <h4
+                className={`text-xs text-red-500 mx-2 antialiased`}
+                aria-live="polite"
+              >
+                {result}
+              </h4>
+            )}
           </div>
         </div>
       </div>
