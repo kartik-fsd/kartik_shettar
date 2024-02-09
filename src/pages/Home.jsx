@@ -54,7 +54,7 @@ function Home() {
           </div>
         </div>
 
-        <section className="max-w-4xl my-8 mx-auto p-6 bg-gray-800 rounded-lg">
+        <section className="max-w-4xl my-8 mx-2 sm:mx-auto p-6 bg-gray-800 rounded-lg">
           <h1 className="font-extrabold text-5xl text-center text-zinc-300 mb-6">
             THE CODE WHISPERER
           </h1>

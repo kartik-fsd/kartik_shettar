@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React, { useMemo } from "react";
 
-function renderTechToolCategory(category, techTools) {
+function RenderTechToolCategory(category, techTools ) {
   const isColumnView = techTools.length < 3;
 
   return (
@@ -9,10 +9,10 @@ function renderTechToolCategory(category, techTools) {
       <h2 className="text-2xl mb-4 font-bold tracking-tight text-gray-100">
         {category}
       </h2>
-      <div className={`grid grid-cols-${isColumnView ? 1 : 2} gap-4`}>
+      <div className={`grid grid-cols-${isColumnView ? 1 : 2} gap-4`} >
         {techTools.map((techToolData) => (
           <div
-            key={techToolData.name}
+            key={techTools.icon}
             className="bg-gray-700 hover:bg-teal-600 text-zinc-300 font-bold py-2 px-4 rounded-lg shadow-md flex items-center justify-between"
             role="listitem"
             aria-label={`Tech & Tool: ${techToolData.name}`}
@@ -41,23 +41,23 @@ function renderTechToolCategory(category, techTools) {
 function TechToolStack({ optimizedData }) {
   const categories = useMemo(
     () => ({
-      frontendTools: optimizedData.filter((techToolData) =>
-        techToolData.category === "frontend"
+      frontendTools: optimizedData.filter(
+        (techToolData) => techToolData.category === "frontend"
       ),
-      backendTools: optimizedData.filter((techToolData) =>
-        techToolData.category === "backend"
+      backendTools: optimizedData.filter(
+        (techToolData) => techToolData.category === "backend"
       ),
-      databaseTechTools: optimizedData.filter((techToolData) =>
-        techToolData.category === "database"
+      databaseTechTools: optimizedData.filter(
+        (techToolData) => techToolData.category === "database"
       ),
-      devOpsTechTools: optimizedData.filter((techToolData) =>
-        techToolData.category === "devops"
+      devOpsTechTools: optimizedData.filter(
+        (techToolData) => techToolData.category === "devops"
       ),
-      cloudTechTools: optimizedData.filter((techToolsData) =>
-        techToolsData.category === "cloud"
+      cloudTechTools: optimizedData.filter(
+        (techToolsData) => techToolsData.category === "cloud"
       ),
-      generalTechTools: optimizedData.filter((techToolData) =>
-        techToolData.category === "tools"
+      generalTechTools: optimizedData.filter(
+        (techToolData) => techToolData.category === "tools"
       ),
     }),
     [optimizedData]
@@ -68,9 +68,9 @@ function TechToolStack({ optimizedData }) {
       <h1 className="text-2xl font-bold tracking-tight text-center text-gray-100">
         Tech Stack
       </h1>
-      {Object.entries(categories).map(([category, techTools]) => (
-        renderTechToolCategory(category, techTools)
-      ))}
+      {Object.entries(categories).map(([category, techTools]) =>
+        RenderTechToolCategory(category, techTools)
+      )}
     </section>
   );
 }
@@ -78,7 +78,7 @@ function TechToolStack({ optimizedData }) {
 TechToolStack.propTypes = {
   optimizedData: PropTypes.arrayOf(
     PropTypes.shape({
-      category: PropTypes.object.isRequired,
+      category: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       icon: PropTypes.elementType, // Assuming it's a React component
     })
