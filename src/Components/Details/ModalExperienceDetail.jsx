@@ -6,7 +6,6 @@ export const ExperienceCard = ({
   dates,
   title,
   description,
-  links,
 }) => {
   return (
     <article className="w-100 p-6 bg-white  dark:bg-slate-800">
@@ -33,20 +32,6 @@ export const ExperienceCard = ({
           <li key={index} className="mb-1">{point}</li>
         ))}
       </ul>
-        {/* <div className="flex items-center justify-around">
-          {links.map((link) => (
-            <a
-              key={link.url}
-              href={link.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-teal-500 hover:text-teal-700"
-            >
-              {<link.icon className="h-5 w-5 text-teal-500" aria-hidden="true" />}
-            </a>
-          ))}
-        </div> */}
-
     </article>
   )
   
