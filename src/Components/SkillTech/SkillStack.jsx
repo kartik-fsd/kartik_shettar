@@ -2,32 +2,32 @@ import PropTypes from "prop-types";
 import React, { useMemo } from "react";
 
 function RenderTechToolCategory(category, techTools ) {
-  const isColumnView = techTools.length < 3;
 
   return (
     <section className="mb-8 bg-gray-800 text-white">
-      <h2 className="text-2xl mb-4 font-bold tracking-tight text-gray-100">
+      <h2 className="text-xl mb-4 font-bold tracking-tight text-gray-300 capitalize">
         {category}
       </h2>
-      <div className={`grid grid-cols-${isColumnView ? 1 : 2} gap-4`} >
+      <div className="flex flex-wrap" >
         {techTools.map((techToolData) => (
           <div
             key={techTools.icon}
-            className="bg-gray-700 hover:bg-teal-600 text-zinc-300 font-bold py-2 px-4 rounded-lg shadow-md flex items-center justify-between"
+            className="bg-gray-700 hover:bg-teal-600 text-zinc-300 font-bold py-2 px-4 m-2 rounded-xl shadow-md flex items-center"
             role="listitem"
             aria-label={`Tech & Tool: ${techToolData.name}`}
+            title={`Tech & Tool: ${techToolData.name}`}
           >
-            <span className="flex items-center  space-x-2">
+            <span className="flex items-center space-x-1">
               {techToolData.icon && (
                 <span
-                  className="w-7 h-7 mr-2 flex items-center text-white"
+                  className="w-7 h-7 flex items-center text-white"
                   role="img"
                   aria-hidden="true"
                 >
                   {React.createElement(techToolData.icon)}
                 </span>
               )}
-              <span className="text-sm font-medium text-gray-100">
+              <span className="text-sm font-medium m-0 text-gray-100">
                 {techToolData.name}
               </span>
             </span>
@@ -41,22 +41,22 @@ function RenderTechToolCategory(category, techTools ) {
 function TechToolStack({ optimizedData }) {
   const categories = useMemo(
     () => ({
-      frontendTools: optimizedData.filter(
+      frontend: optimizedData.filter(
         (techToolData) => techToolData.category === "frontend"
       ),
-      backendTools: optimizedData.filter(
+      backend: optimizedData.filter(
         (techToolData) => techToolData.category === "backend"
       ),
-      databaseTechTools: optimizedData.filter(
+      database: optimizedData.filter(
         (techToolData) => techToolData.category === "database"
       ),
-      devOpsTechTools: optimizedData.filter(
+      devOps: optimizedData.filter(
         (techToolData) => techToolData.category === "devops"
       ),
-      cloudTechTools: optimizedData.filter(
+      cloud: optimizedData.filter(
         (techToolsData) => techToolsData.category === "cloud"
       ),
-      generalTechTools: optimizedData.filter(
+      Tools: optimizedData.filter(
         (techToolData) => techToolData.category === "tools"
       ),
     }),
@@ -65,7 +65,7 @@ function TechToolStack({ optimizedData }) {
 
   return (
     <section className="bg-gray-800 text-white rounded-lg shadow-lg p-8">
-      <h1 className="text-2xl font-bold tracking-tight text-center text-gray-100">
+      <h1 className="text-3xl font-bold tracking-tight text-center text-gray-100 mb-6">
         Tech Stack
       </h1>
       {Object.entries(categories).map(([category, techTools]) =>
