@@ -1,8 +1,50 @@
-//import PropTypes from 'prop-types'
+import { useCallback, useMemo } from "react";
+import { projectsData } from "../../assets/data";
+import { useSearchContext } from "../Context/useSearchContext";
+import { debounce } from "lodash";
 
 function SearchSection() {
+  const { updateResults, value, updateValues } = useSearchContext();
+
+  const lowercaseKeywords = useMemo(
+    () => value.toLowerCase().split(/\s+/),
+    [value]
+  );
+
+  const handleSearch = useCallback(() => {
+    // Check if the user has entered more than 3 letters
+    if (value.trim().length >= 2) {
+      const formattedResults = projectsData.filter((object) => {
+        if (object.keywords) {
+          return object.keywords.some((keyword) =>
+            lowercaseKeywords.some((kw) => keyword.toLowerCase().includes(kw))
+          );
+        }
+        return false; // Handle missing or empty keywords gracefully
+      });
+
+      updateResults(formattedResults);
+    } else {
+      // Clear results if the search input is less than 3 letters
+      updateResults([]);
+    }
+  }, [lowercaseKeywords, updateResults, value]);
+
+  const debouncedHandleSearch = useMemo(
+    () => debounce(handleSearch, 600),
+    [handleSearch]
+  );
+
+  const handleInput = useCallback(
+    (event) => {
+      updateValues(event.target.value.trim());
+      debouncedHandleSearch();
+    },
+    [debouncedHandleSearch, updateValues]
+  );
+
   return (
-    <form className="flex items-center max-w-4xl my-2 mx-auto p-2 lg:px-4">
+    <section className="flex items-center max-w-4xl my-2 mx-auto p-2 lg:px-4">
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
@@ -30,10 +72,15 @@ function SearchSection() {
           className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-teal-500 focus:border-teal-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-teal-500 dark:focus:border-teal-500"
           placeholder="Search project by skills..."
           required
+          onChange={handleInput}
         />
       </div>
       <button
-        type="submit"
+        type="button"
+        onClick={handleSearch}
+        onKeyDown={(e) => {
+          if (e.key === "Enter") handleSearch();
+        }}
         className="p-2.5 ms-2 text-sm font-medium text-white bg-teal-700 rounded-lg border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
       >
         <svg
@@ -53,10 +100,8 @@ function SearchSection() {
         </svg>
         <span className="sr-only">Search</span>
       </button>
-    </form>
+    </section>
   );
 }
-
-//SearchSection.propTypes = {}
 
 export default SearchSection;
