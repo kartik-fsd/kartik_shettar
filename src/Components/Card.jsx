@@ -4,8 +4,8 @@ function Card({ imgPath, title,isFeatured ,description }) {
   console.log(isFeatured)
   return (
     <div className="group relative">
-      <div className="relative h-80 w-full overflow-hidden rounded-lg bg-gray-800 shadow-sm shadow-neutral-800 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64">
-        <img
+      <div className="relative h-80 w-full overflow-hidden rounded-lg shadow-sm shadow-neutral-800 sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1 group-hover:opacity-75 sm:h-64 bg-gradient-to-br from-gray-800 to-teal-600">
+         <img
           src={imgPath}
           alt={title || "Image"}
           aria-label={title || "Image"}

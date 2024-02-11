@@ -297,7 +297,7 @@ export const projectsData = [
     imgPath: job,
     isFeatured: false,
     title: "Native Jobs",
-    description:"Crafted using Node.js and React Native, our mobile app is designed for an engaging user experience and robust functionality. The UI is a masterpiece, seamlessly blending React Native components. Axios ensures dynamic connectivity to external APIs, keeping our app up-to-date. Search, pagination, and custom API data fetching hooks enhance navigation and efficiency. The dynamic home page showcases diverse job opportunities, while the Explore Page offers a smooth journey through job categories. Detailed job insights provide comprehensive information. We prioritize cleanliness and modularity in our code architecture, promoting reusability for a tech-art evolving app.",
+    description:"Crafted using NodeJs and React Native, our mobile app is designed for an engaging user experience and robust functionality. The UI is a masterpiece, seamlessly blending React Native components. Axios ensures dynamic connectivity to external APIs, keeping our app up-to-date. Search, pagination, and custom API data fetching hooks enhance navigation and efficiency. The dynamic home page showcases diverse job opportunities, while the Explore Page offers a smooth journey through job categories. Detailed job insights provide comprehensive information. We prioritize cleanliness and modularity in our code architecture, promoting reusability for a tech-art evolving app.",
     ghLink: "https://github.com/kartik-fsd/Native-Jobs.git",
     demoLink:
       "https://drive.google.com/file/d/1Sdkz265lIeOTp8S0iXB6Fr-tXgqsDSPD/view?usp=drive_link",
