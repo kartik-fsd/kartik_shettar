@@ -4,14 +4,14 @@ import { useSearchContext } from "../Context/useSearchContext";
 import { debounce } from "lodash";
 
 function SearchSection() {
-  const { updateResults, value, updateValues } = useSearchContext();
+  const { updateResults, value, updateValues,updateShowResult } = useSearchContext();
 
   const lowercaseKeywords = useMemo(
     () => value.toLowerCase().split(/\s+/),
     [value]
   );
 
-  const handleSearch = useCallback(() => {
+  const executeSearch = useCallback(() => {
     // Check if the user has entered more than 3 letters
     if (value.trim().length >= 2) {
       const formattedResults = projectsData.filter((object) => {
@@ -23,26 +23,37 @@ function SearchSection() {
         return false; // Handle missing or empty keywords gracefully
       });
 
-      updateResults(formattedResults);
+      // Check if results are empty and update context with "not found" message
+      if (formattedResults.length === 0) {
+        updateResults([
+          {
+            id: 'not-found',
+            title: 'No Results Found',
+            description: `No results found for "${value}".`,
+          },
+        ]);
+      } else {
+        // Update context with actual search results
+        updateResults(formattedResults);
+        updateShowResult()
+      }
     } else {
       // Clear results if the search input is less than 3 letters
       updateResults([]);
     }
-  }, [lowercaseKeywords, updateResults, value]);
+  }, [lowercaseKeywords, updateResults, updateShowResult, value]);
 
-  const debouncedHandleSearch = useMemo(
-    () => debounce(handleSearch, 600),
-    [handleSearch]
+  const debouncedExecuteSearch = useMemo(
+    () => debounce(executeSearch, 600),
+    [executeSearch]
   );
 
   const handleInput = useCallback(
     (event) => {
       updateValues(event.target.value.trim());
-      debouncedHandleSearch();
     },
-    [debouncedHandleSearch, updateValues]
+    [updateValues]
   );
-
   return (
     <section className="flex items-center max-w-4xl my-2 mx-auto p-2 lg:px-4">
       <label htmlFor="simple-search" className="sr-only">
@@ -73,14 +84,14 @@ function SearchSection() {
           placeholder="Search project by skills..."
           required
           onChange={handleInput}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") debouncedExecuteSearch();
+          }}
         />
       </div>
       <button
         type="button"
-        onClick={handleSearch}
-        onKeyDown={(e) => {
-          if (e.key === "Enter") handleSearch();
-        }}
+        onClick={debouncedExecuteSearch}
         className="p-2.5 ms-2 text-sm font-medium text-white bg-teal-700 rounded-lg border border-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800"
       >
         <svg
