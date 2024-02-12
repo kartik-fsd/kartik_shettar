@@ -4,7 +4,7 @@ const ProjectShowcase = ({ banner  }) => {
     <main
       className="max-w-4xl my-6 mx-2 sm:mx-auto bg-cover bg-center h-max text-zinc-800 py-24 px-10 rounded-lg opacity-80"
       style={{ backgroundImage: `url(${banner})`, backgroundBlendMode: 'darken' }}
-      loading ="lazy"
+      loading ="eager"
     >
       <section className="md:w-1/2 flex flex-col justify-center items-start z-10">
         <h1 className="text-3xl font-bold mt-2">Project Showcase</h1>

@@ -12,10 +12,10 @@ const Modal = ({ isOpen, onClose, title, content }) => {
       role="dialog"
       aria-labelledby={`${modalId}-title`}
       aria-modal="true"
-      className="fixed top-0 left-0 h-screen w-screen z-50 flex justify-center items-center bg-gray-900 bg-opacity-50"
+      className="fixed top-0 left-0 h-screen w-screen z-50 flex justify-center items-center bg-neutral-800 bg-opacity-20"
     >
       <div className="w-full max-w-md mx-5">
-        <div className="bg-white rounded-lg shadow dark:bg-slate-800">
+        <div className="bg-white rounded-lg shadow dark:bg-neutral-800">
           <h2
             id={`${modalId}-title`}
             className="text-xl text-center text-zinc-300 font-semibold border-b border-gray-600 mb-2 py-3"

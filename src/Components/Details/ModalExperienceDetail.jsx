@@ -8,7 +8,7 @@ export const ExperienceCard = ({
   description: { summary, points },
 }) => {
   return (
-    <article className="w-100 p-6 bg-white dark:bg-slate-800">
+    <article className="w-100 p-6 ">
       <div className="flex items-center space-x-4 mb-4">
         <img
           src={logo}
