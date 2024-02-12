@@ -13,7 +13,7 @@ export const SearchProvider = ({ children }) => {
     setValue(newResults);
   };
   const updateShowResult = () =>{
-    setShowResults((prev)=> !prev)
+    setShowResults(true)
   }
   const updateResults = (newResults) => {
     setResults(newResults);

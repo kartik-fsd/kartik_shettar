@@ -4,7 +4,7 @@ import { useSearchContext } from "../Context/useSearchContext";
 import { debounce } from "lodash";
 
 function SearchSection() {
-  const { updateResults, value, updateValues,updateShowResult } = useSearchContext();
+  const { updateResults, value,updateValues,updateShowResult } = useSearchContext();
 
   const lowercaseKeywords = useMemo(
     () => value.toLowerCase().split(/\s+/),
@@ -32,6 +32,7 @@ function SearchSection() {
             description: `No results found for "${value}".`,
           },
         ]);
+        updateShowResult()
       } else {
         // Update context with actual search results
         updateResults(formattedResults);
