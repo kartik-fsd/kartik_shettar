@@ -25,7 +25,6 @@ function SearchProjects() {
       {notFoundMessage}
       <div className="max-w-2xl py-4 sm:py-6 lg:max-w-none lg:py-8">
         <div className="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-8 lg:space-y-0">
-          {/* Map over results only if there are actual projects */}
           {results.map(
             (project) =>
               project.id !== "not-found" && (

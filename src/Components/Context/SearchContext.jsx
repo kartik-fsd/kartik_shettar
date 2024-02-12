@@ -7,6 +7,7 @@ export const SearchProvider = ({ children }) => {
   const [value, setValue] = useState('');
   const [results, setResults] = useState([]);
   const [showResults, setShowResults] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   const updateValues = (newResults) => {
     setValue(newResults);
@@ -19,7 +20,7 @@ export const SearchProvider = ({ children }) => {
   };
 
   return (
-    <SearchContext.Provider value={{ results, updateResults ,value,updateValues ,updateShowResult ,showResults}}>
+    <SearchContext.Provider value={{ results, updateResults ,value,updateValues ,updateShowResult,selectedProject, setSelectedProject ,showResults}}>
       {children}
     </SearchContext.Provider>
   );

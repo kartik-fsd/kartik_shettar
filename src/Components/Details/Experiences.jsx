@@ -64,6 +64,10 @@ const Experiences = ({ company, logo, dates, title }) => {
           onClose={() => setIsModalOpen(false)}
           content={modalContent}
           title="Experience Details"
+          footer={()=>(
+          <>
+          </>
+            )}
         />
       </Suspense>
     </>
