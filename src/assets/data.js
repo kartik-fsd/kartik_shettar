@@ -32,6 +32,11 @@ const icons = {
   IoLogoVercel: IoIcons.IoLogoVercel,
   SiNetlify: SiIcons.SiNetlify,
   TbBrandVscode: TbIcons.TbBrandVscode,
+  FaLinkedin :FaIcons.FaLinkedin,
+  FaGithub: FaIcons.FaGithub,
+  FaInstagram: FaIcons.FaInstagram,
+  FaEnvelope : FaIcons.FaEnvelope,
+  FaPhone :FaIcons.FaPhone,
 };
 
 // Custom icon utility function
@@ -158,6 +163,30 @@ export const Aboutdata = {
   about:
     "With a Bachelor's degree in Computer Applications (BCA) and a comprehensive training in full-stack web development. Oh, joy! Recently completed an enlightening internship as a Full-stack Developer at TASKMO, where I honed my skills and gained invaluable hands-on experience. By combining my unparalleled technical expertise, overwhelming creativity, and an unwavering commitment to continuous learning, I aim to contribute to the most groundbreaking web projects and deliver solutions that are just so outstanding they might be too much for users to handle.Because, you know, that's just how I roll.",
 };
+export const contactOptions = [
+  {
+    href: "https://www.linkedin.com/in/your-linkedin-profile",
+    icon: getIconByName("FaLinkedin"),
+    label: "LinkedIn",
+  },
+  {
+    href: "https://github.com/your-github-username",
+    icon: getIconByName("FaGithub"),
+    label: "GitHub",
+  },
+  {
+    href: "https://www.instagram.com/your-instagram-handle",
+    icon: getIconByName("FaInstagram"),
+    label: "Instagram",
+  },
+  {
+    href: "mailto:your-email@example.com",
+    icon: getIconByName("FaEnvelope"),
+    label: "Email",
+  },
+  // Add your additional contact option here:
+  //  { href: 'tel:+918880657026', icon: getIconByName("FaPhone"), label: 'Call Me' },
+];
 
 export const projectsData = [
   {
