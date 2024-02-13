@@ -4,7 +4,7 @@ import { FaRegCopy } from "react-icons/fa6";
 
 function Avatar({ data }) {
   const [copied, setCopied] = useState(false);
-  const [result, setResult] = useState('');
+  const [result, setResult] = useState("");
 
   const copyEmail = async () => {
     try {
@@ -13,7 +13,7 @@ function Avatar({ data }) {
       setResult("Copied successfully!");
       setTimeout(() => {
         setCopied(false);
-        setResult(''); // Reset result message
+        setResult(""); // Reset result message
       }, 1600);
     } catch (error) {
       console.error("Error copying email:", error);
@@ -22,7 +22,7 @@ function Avatar({ data }) {
       setResult("Something went wrong. Try again!");
       setTimeout(() => {
         setCopied(false);
-        setResult(''); // Reset result message
+        setResult(""); // Reset result message
       }, 2000);
     }
   };
@@ -34,13 +34,17 @@ function Avatar({ data }) {
           <img
             className="rounded-full object-cover w-24 h-24"
             src={data.image}
-            alt={`Profile Avatar of ${data.name}`}
+            alt={"Kartik shettar image"}
+            role="presentation"
+            aria-label={"Kartik shettar image"}
             loading="lazy"
           />
         </figure>
 
         <div className="text-center">
-          <header className="text-zinc-200 text-lg font-medium">{data.name}</header>
+          <header className="text-zinc-200 text-lg font-medium">
+            {data.name}
+          </header>
           <p className="text-zinc-300 text-sm font-light mt-1">{data.title}</p>
           <div className="mt-1 flex items-center justify-center">
             <h4 className="text-zinc-400 text-xs mr-2">{data.email}</h4>

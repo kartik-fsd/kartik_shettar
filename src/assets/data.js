@@ -11,6 +11,7 @@ import movie from "./project/movie.webp";
 import weather from "./project/weather.webp";
 import sneaker from "./project/dripnseak.webp";
 import job from "./project/job.webp";
+import kartikIMg from "../assets/kartik.webp"
 
 // Create a custom icon library
 const icons = {
@@ -148,8 +149,7 @@ export const experienceData = [
 ];
 
 export const Aboutdata = {
-  image:
-    "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg",
+  image:  kartikIMg ,
   name: "Kartik Shettar",
   title: "Full Stack Developer | Frontend Developer",
   email: "1kartikshettar@gmail.com",
