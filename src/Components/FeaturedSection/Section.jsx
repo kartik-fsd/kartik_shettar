@@ -1,7 +1,7 @@
 import Card from "../Card";
 import { projectsData } from "../../assets/data";
 import { memo } from "react";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/Tailwindmodal";
 import { useSearchContext } from "../Context/useSearchContext";
 
 

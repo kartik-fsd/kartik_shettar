@@ -2,7 +2,7 @@ import React from "react";
 import { projectsData } from "../../assets/data";
 import Card from "../Card";
 import { useSearchContext } from "../Context/useSearchContext";
-import Modal from "../Modal/Modal";
+import Modal from "../Modal/Tailwindmodal";
 
 function ProjectShowCase() {
   const {selectedProject, setSelectedProject} = useSearchContext();

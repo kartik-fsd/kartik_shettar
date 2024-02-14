@@ -5,7 +5,7 @@ import { experienceData } from "../../assets/data";
 import { ExperienceCard } from "./ModalExperienceDetail";
 
 // Use React.lazy to lazily load the Modal component
-const Modal = lazy(() => import("../Modal/Modal"));
+const Modal = lazy(() => import("../Modal/Tailwindmodal"));
 
 const Experiences = ({ company, logo, dates, title }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
