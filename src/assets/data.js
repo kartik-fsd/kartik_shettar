@@ -11,6 +11,7 @@ import movie from "./project/movie.webp";
 import weather from "./project/weather.webp";
 import sneaker from "./project/dripnseak.webp";
 import job from "./project/job.webp";
+import kartikPort from "./project/kartikP.webp"
 import kartikIMg from "../assets/kartik.webp"
 
 // Create a custom icon library
@@ -245,6 +246,32 @@ export const projectsData = [
       "Responsive",
       "React-Router",
       "Movie-DB",
+      "API",
+      "Axios",
+    ],
+  },
+  {
+    imgPath: kartikPort,
+    isFeatured: false,
+    title: "Kartik's Portfolio",
+    description: "Welcome to my portfolio website, built with React.js. Explore a showcase of my projects and skills in the world of web development. The site offers a glimpse into my expertise with technologies like React.js, JavaScript, CSS, Bootstrap, and responsive design. Feel free to navigate through the projects, and don't hesitate to check out the GitHub repository for the source code. Experience the seamless and user-friendly design as you explore the world of my web development journey.",
+    ghLink: "https://github.com/kartik-fsd",
+    demoLink: "https://kartik-devloper.netlify.app/",
+    isFrontend: true,
+    skills: [
+      "React.js",
+      "JavaScript",
+      "CSS",
+      "Bootstarp",
+      "Responsive",
+    ],
+    keywords: [
+      "React.js",
+      "JavaScript",
+      "CSS",
+      "Bootstrap",
+      "Responsive",
+      "React-Router",
       "API",
       "Axios",
     ],

@@ -66,11 +66,14 @@ function Home() {
             wonder: do I really know what I&apos;m doing?
           </p>
           <p className="mt-4">
-            Amidst the vast realm of Web Technologies, I am the virtuoso,
-            orchestrating symphonies with Node.js. Envision me fervently casting
-            spells with the mystic languages of Modern Javascript Libraries and
-            Frameworks - React.js and Next.js. Prepare for an experience in
-            extraordinary mediocrity.
+            In the vast expanse of coding, I fluently converse in classics like
+            JavaScript, React, and Node. My interests lie in crafting the future
+            of web technologies and products. Occasionally, I indulge my
+            penchant for product development, employing the ever-so-trendy
+            Node.js and the avant-garde JavaScript libraries and frameworks,
+            including the likes of React.js and Next.js. My approach leans
+            towards the unconventional, steering away from clichés and embracing
+            a cool, subtly sarcastic perspective.
           </p>
         </section>
       </main>
