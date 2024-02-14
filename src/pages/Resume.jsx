@@ -1,5 +1,5 @@
 import TransitionComponent from "../Components/Transition/Transition";
-import pdf from "../assets/kartikshettar.pdf";
+import pdf from "../assets/KartikShettar.pdf";
 import { useEffect, useState } from "react";
 import { Document, Page, pdfjs } from 'react-pdf';
 import "react-pdf/dist/Page/TextLayer.css";

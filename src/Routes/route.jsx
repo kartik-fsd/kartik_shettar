@@ -1,7 +1,7 @@
 import {  Routes ,Route  } from "react-router-dom";
 import Home from "../pages/Home" 
 import About from "../pages/About";
-import Project from "../pages/Project.JSX";
+import Project from "../pages/Project.jsx";
 import Resume from "../pages/Resume";
 import ContactForm from "../pages/ContactForm";
 //import TransitionComponent from "../Components/Transisition/Transition";

@@ -1,15 +1,43 @@
+import {  useState } from "react";
 import Toast from "../Components/Toast/Toast";
 import TransitionComponent from "../Components/Transition/Transition";
 import { contactOptions } from "../assets/data";
 import { ContactButton } from "./ContactButton";
 import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
+  const [showToast, setShowToast] = useState();
 
-  const onSubmit=(data)=>{
-    console.log(data,"data")
-  }
+console.log(process.env.REACT_APP_MESSAGE_WEB3,"JI")
+  const onSubmit = async (data) => {
+   
+    data.access_key = process.env.REACT_APP_MESSAGE_WEB3;
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(data, null, 2),
+      });
+
+      const json = await response.json();
+
+      if (json.success) {
+        setShowToast(toast.success('Message sent successfully',{duration:4000}))
+        reset();
+      } else {
+        setShowToast(toast.error('Oops..!Something went wrong'));
+      }
+    } catch (error) {
+      setShowToast(toast.error('Oops..!Something went wrong'));
+    }
+  };
+
   return (
     <TransitionComponent>
       <div className="max-w-4xl my-6 mx-auto p-4 lg:px-4 ">
@@ -101,8 +129,8 @@ const ContactForm = () => {
             </div>
         </section>
       </div>
-      <Toast message="Message sent successfully!" 
-      type="success"
+      <Toast 
+      showToast ={showToast}
       />
 
     </TransitionComponent>
