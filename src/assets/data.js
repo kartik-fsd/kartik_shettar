@@ -165,22 +165,22 @@ export const Aboutdata = {
 };
 export const contactOptions = [
   {
-    href: "https://www.linkedin.com/in/your-linkedin-profile",
+    href: "https://www.linkedin.com/in/kartik-shettar-dev/",
     icon: getIconByName("FaLinkedin"),
     label: "LinkedIn",
   },
   {
-    href: "https://github.com/your-github-username",
+    href: "https://github.com/kartik-fsd",
     icon: getIconByName("FaGithub"),
     label: "GitHub",
   },
   {
-    href: "https://www.instagram.com/your-instagram-handle",
+    href: "https://www.instagram.com/kartik_shettar_",
     icon: getIconByName("FaInstagram"),
     label: "Instagram",
   },
   {
-    href: "mailto:your-email@example.com",
+    href: "mailto:1kartikshettar@gmail.com",
     icon: getIconByName("FaEnvelope"),
     label: "Email",
   },
