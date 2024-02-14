@@ -1,22 +1,24 @@
-import {  useState } from "react";
-import Toast from "../Components/Toast/Toast";
+import { Suspense, lazy, useState } from "react";
 import TransitionComponent from "../Components/Transition/Transition";
 import { contactOptions } from "../assets/data";
 import { ContactButton } from "./ContactButton";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 
+
+const Toast = lazy(() => import("../Components/Toast/Toast"));
+
+const apiEndpoint = "https://api.web3forms.com/submit";
+
 const ContactForm = () => {
   const { register, handleSubmit, reset } = useForm();
   const [showToast, setShowToast] = useState();
 
-console.log(process.env.REACT_APP_MESSAGE_WEB3,"JI")
   const onSubmit = async (data) => {
-   
     data.access_key = process.env.REACT_APP_MESSAGE_WEB3;
 
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch(apiEndpoint, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -28,29 +30,33 @@ console.log(process.env.REACT_APP_MESSAGE_WEB3,"JI")
       const json = await response.json();
 
       if (json.success) {
-        setShowToast(toast.success('Message sent successfully',{duration:4000}))
+        setShowToast(toast.success("Message sent successfully", { duration: 4000 }));
         reset();
       } else {
-        setShowToast(toast.error('Oops..!Something went wrong'));
+        setShowToast(toast.error("Oops..! Something went wrong"));
       }
     } catch (error) {
-      setShowToast(toast.error('Oops..!Something went wrong'));
+      setShowToast(toast.error("Oops..! Something went wrong"));
     }
   };
 
   return (
     <TransitionComponent>
+       <Suspense fallback={"Loading..."}>
       <div className="max-w-4xl my-6 mx-auto p-4 lg:px-4 ">
         <h1 className="text-zinc-200 text-3xl font-semibold text-center">
           Let&apos;s Connect
         </h1>
-        <p className="text-md text-zinc-300 my-4 text-wrap max-w-2xl text-center mx-auto">
+        <p className="text-md text-zinc-400 my-4 text-wrap max-w-2xl text-center mx-auto">
           I&apos;M always open to new opportunities. If you&apos;re intrested in
           hiring me, just want to chat or if you have any ideas, feel free to
           reach out we can start conversation.
         </p>
 
-        <form className="max-w-sm mx-auto my-8" onSubmit={handleSubmit(onSubmit)}>
+        <form
+          className="max-w-sm mx-auto my-8"
+          onSubmit={handleSubmit(onSubmit)}
+        >
           <div className="mb-5">
             <label
               htmlFor="name"
@@ -114,7 +120,7 @@ console.log(process.env.REACT_APP_MESSAGE_WEB3,"JI")
             type="submit"
             className="text-white bg-teal-700 hover:bg-teal-800 focus:ring-4 focus:outline-none focus:ring-teal-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-teal-600 dark:hover:bg-teal-700 dark:focus:ring-teal-800 w-full"
           >
-            Register new account
+            Send Message
           </button>
         </form>
 
@@ -122,17 +128,15 @@ console.log(process.env.REACT_APP_MESSAGE_WEB3,"JI")
           <p className="text-lg text-zinc-400 my-2 text-center max-w-sm mx-auto">
             Or reach me out through these platforms :
           </p>
-            <div className="flex gap-4 justify-center mt-4">
-              {contactOptions.map((option) => (
-                <ContactButton key={option.label} {...option} />
-              ))}
-            </div>
+          <div className="flex gap-4 justify-center mt-4">
+            {contactOptions.map((option) => (
+              <ContactButton key={option.label} {...option} />
+            ))}
+          </div>
         </section>
       </div>
-      <Toast 
-      showToast ={showToast}
-      />
-
+      <Toast showToast={showToast} />
+      </Suspense>
     </TransitionComponent>
   );
 };
