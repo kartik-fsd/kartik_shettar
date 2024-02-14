@@ -3,12 +3,19 @@ import { motion } from "framer-motion";
 import Type from "../Components/Typewriter/type";
 import { memo } from "react";
 import TransitionComponent from "../Components/Transition/Transition";
+import { Helmet } from "react-helmet";
 
 function Home() {
   const MemoizedType = memo(Type);
 
   return (
     <TransitionComponent>
+        <Helmet>
+        <title>Kartik Shettar&apos;s Portfolio</title>
+        <meta name="description" content="Kartik-Shettar webdeveloper | full stack developer | frontend developer." />
+        <meta property="og:title" content="Kartik-Shettar - Full Stack Developer" />
+        <meta property="og:description" content="Kartik-shettar portfolio website for the Full Stack Developer and Frontend Developer." />
+      </Helmet>
       <main className="min-h-screen flex flex-col items-center justify-center text-white">
         <div className="max-w-4xl my-6 mx-auto p-4 lg:px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">

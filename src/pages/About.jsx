@@ -13,8 +13,8 @@ function About() {
       <Helmet>
         <title>Kartik Shettar&apos;s About Page</title>
         <meta name="description" content="Introduction of Kartik Shettar." />
-        <meta property="og:title" content="Kartik Shettar - Full Stack Developer" />
-        <meta property="og:description" content="A portfolio website for the Full Stack Developer and Frontend Developer." />
+        <meta property="og:title" content="Kartik-Shettar - Full Stack Developer" />
+        <meta property="og:description" content="Kartik-shettar portfolio website for the Full Stack Developer and Frontend Developer." />
       </Helmet>
       <main className="min-h-screentext-white">
         {/*Avatar Section */}
