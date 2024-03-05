@@ -16,6 +16,8 @@ This project was built using these technologies.
 - Node.js
 - Tailwind
 - VsCode
+- Hot toast
+- React helmet
 - Netlify
 
 ## Features
