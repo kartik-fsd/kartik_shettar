@@ -1,4 +1,4 @@
-import  { useState, lazy, Suspense } from "react";
+import { useState, lazy, Suspense } from "react";
 import PropTypes from "prop-types";
 import { FaChevronRight } from "react-icons/fa6";
 import { experienceData } from "../../assets/data";
@@ -31,7 +31,7 @@ const Experiences = ({ company, logo, dates, title }) => {
             className="w-16 h-16 rounded"
             src={logo}
             alt={company}
-            loading="lazy"
+            loading="eager"
             role="presentation"
           />
           <div className="font-medium dark:text-white">
@@ -64,10 +64,7 @@ const Experiences = ({ company, logo, dates, title }) => {
           onClose={() => setIsModalOpen(false)}
           content={modalContent}
           title="Experience Details"
-          footer={()=>(
-          <>
-          </>
-            )}
+          footer={() => <></>}
         />
       </Suspense>
     </>
@@ -82,4 +79,3 @@ Experiences.propTypes = {
 };
 
 export default Experiences;
-

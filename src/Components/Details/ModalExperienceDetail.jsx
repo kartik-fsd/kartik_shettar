@@ -16,7 +16,7 @@ export const ExperienceCard = ({
           className="w-16 h-16 rounded-full"
           role="img"
           aria-label={`${company} logo`}
-          loading="lazy"
+          loading="eager"
         />
         <div>
           <h3 className="text-gray-400 text-md font-medium">{title}</h3>
@@ -36,8 +36,7 @@ export const ExperienceCard = ({
         </ul>
       )}
     </article>
-  )
-  
+  );
 };
 
 ExperienceCard.propTypes = {

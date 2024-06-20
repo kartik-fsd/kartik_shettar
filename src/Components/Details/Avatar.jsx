@@ -37,7 +37,7 @@ function Avatar({ data }) {
             alt={"Kartik shettar image"}
             role="presentation"
             aria-label={"Kartik shettar image"}
-            loading="lazy"
+            loading="eager"
           />
         </figure>
 
