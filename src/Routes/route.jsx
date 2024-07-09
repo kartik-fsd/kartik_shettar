@@ -5,7 +5,6 @@ import Project from "../pages/Project.jsx";
 import Resume from "../pages/Resume";
 import ContactForm from "../pages/ContactForm";
 import NOT_FOUND from "../pages/NOT_FOUND.jsx";
-import Adv from "../pages/Adv.jsx";
 //import TransitionComponent from "../Components/Transisition/Transition";
 
 export const Routers = () => {
@@ -17,7 +16,6 @@ export const Routers = () => {
         <Route path="/projects" element={<Project />} />
         <Route path="/resume" element={<Resume />} />
         <Route path="/contact" element={<ContactForm />} />
-        <Route path="/advertisement" element={<Adv />} />
         <Route path="*" element={<NOT_FOUND />} />
       </Routes>
     </>
