@@ -5,7 +5,6 @@ import HeaderNavbar from "./Components/Header/navbar";
 import LoadingPage from "./Components/Loader/Loader";
 import ScrollToTopButton from "./Components/ScrollToTop/ScrollToTop";
 import { Routers } from "./Routes/route";
-import { AdvRouters } from "./Routes/AdvertismentRoute";
 
 function App() {
   const [loading, setLoading] = useState(false);
