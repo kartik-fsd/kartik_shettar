@@ -5,23 +5,26 @@ import HeaderNavbar from "./Components/Header/navbar";
 import LoadingPage from "./Components/Loader/Loader";
 import ScrollToTopButton from "./Components/ScrollToTop/ScrollToTop";
 import { Routers } from "./Routes/route";
+import { AdvRouters } from "./Routes/AdvertismentRoute";
 
 function App() {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    // Simulate an asynchronous operation
-    setTimeout(() => {
-      setLoading(false);
-    }, 1500);
-  }, []);
+  // useEffect(() => {
+  //   // Simulate an asynchronous operation
+  //   setTimeout(() => {
+  //     setLoading(false);
+  //   }, 1500);
+  // }, []);
   return (
-    <div className="bg-gray-900 h-full flex flex-col min-h-screen justify-between">
-      <HeaderNavbar />
-      {loading ? <LoadingPage /> : <Routers />}
-      <ScrollToTopButton />
-      <Footer />
-    </div>
+    <>
+      <div className="bg-gray-900 h-full flex flex-col min-h-screen justify-between">
+        {/* <HeaderNavbar /> */}
+        {loading ? <LoadingPage /> : <Routers />}
+        <ScrollToTopButton />
+        <Footer />
+      </div>
+    </>
   );
 }
 
