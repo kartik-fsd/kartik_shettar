@@ -49,11 +49,6 @@ const ContactForm = () => {
           <h1 className="text-zinc-200 text-3xl font-semibold text-center">
             Let&apos;s Connect
           </h1>
-          <img
-            alt="adds"
-            src={Advertisment}
-            className="h-60 flex items-center justify-center"
-          />
           <p className="text-md text-zinc-400 my-4 text-wrap max-w-2xl text-center mx-auto">
             I&apos;M always open to new opportunities. If you&apos;re intrested
             in hiring me, just want to chat or if you have any ideas, feel free
