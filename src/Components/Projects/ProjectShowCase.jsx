@@ -5,7 +5,7 @@ import { useSearchContext } from "../Context/useSearchContext";
 import Modal from "../Modal/Tailwindmodal";
 
 function ProjectShowCase() {
-  const {selectedProject, setSelectedProject} = useSearchContext();
+  const { selectedProject, setSelectedProject } = useSearchContext();
 
   const openModal = (project) => {
     setSelectedProject(project);
@@ -32,23 +32,23 @@ function ProjectShowCase() {
     <div className="max-w-2xl py-4 sm:py-6 lg:max-w-none lg:py-8">
       <h2 className="text-2xl font-bold text-gray-200">{title}</h2>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filteredProjects.map((project,key) => (
-          <Card
-            key={key}
-            {...project}
-            onClick={() => openModal(project)}
-          />
+        {filteredProjects.map((project, key) => (
+          <Card key={key} {...project} onClick={() => openModal(project)} />
         ))}
       </div>
     </div>
   );
   const ModalContent = () => (
     <div className="flex flex-col justify-center space-y-4">
-      <img src={selectedProject.imgPath} alt={selectedProject.title} loading="lazy" role="presentation"/>
+      <img
+        src={selectedProject.imgPath}
+        alt={selectedProject.title}
+        role="presentation"
+      />
       <h2 className="text-xl font-bold text-center">{selectedProject.title}</h2>
       <ul className="list-disc list-inside text-gray-400">
         <p className="text-lg text-gray-300">Skills</p>
-        {selectedProject.skills.map((skill,key) => (
+        {selectedProject.skills.map((skill, key) => (
           <li key={key}>{skill}</li>
         ))}
       </ul>
